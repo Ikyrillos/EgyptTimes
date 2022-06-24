@@ -12,9 +12,9 @@ class TechnologyCubit extends Cubit<TechnologyState> {
   static TechnologyCubit get(BuildContext context) => BlocProvider.of(context);
   var baseUrl = 'https://newsapi.org/v2/top-headlines';
   var apiKey = '14edd17012b34b9eaf5117eae583678d';
-  var country = 'eg';
+  var country = 'us';
   var category = 'technology';
-  var language = 'ar';
+  var language = 'en';
   List<Articles>? articles;
 
   void getScienceNews() {

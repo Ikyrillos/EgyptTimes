@@ -1,9 +1,9 @@
 import 'package:egytimes/bloc/business_cubit/news_cubit.dart';
 import 'package:egytimes/bloc/business_cubit/news_state.dart';
 import 'package:egytimes/presentation/screens/business.news.screen.dart';
+import 'package:egytimes/presentation/screens/search_screen.dart';
 import 'package:egytimes/presentation/screens/sports.news.screen.dart';
 import 'package:egytimes/presentation/screens/technology.news.screen.dart';
-import 'package:egytimes/presentation/screens/widgets/news_page_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,7 @@ class MainScreen extends StatelessWidget {
           elevation: 1.6,
           centerTitle: true,
           title: const Text(
-            'EgyTimes',
+            'Times',
             style: TextStyle(
               fontFamily: 'Times',
               color: Colors.black,
@@ -34,6 +34,22 @@ class MainScreen extends StatelessWidget {
               fontSize: 26.0,
             ),
           ),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.search,
+                color: Colors.black,
+              ),
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SearchScreen(context: context),
+                  ),
+                ),
+              },
+            ),
+          ],
         ),
         body: screens[NewsCubit.get(context).currentIndex],
         bottomNavigationBar: BottomNavigationBar(

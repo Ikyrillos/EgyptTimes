@@ -1,5 +1,6 @@
 import 'package:egytimes/bloc/business_cubit/news_cubit.dart';
 import 'package:egytimes/bloc/science_cubit/technology_cubit.dart';
+import 'package:egytimes/bloc/search_cubit/cubit/search_cubit.dart';
 import 'package:egytimes/bloc/sports_cubit/sports_cubit.dart';
 import 'package:egytimes/presentation/screens/main_screen.dart';
 import 'package:egytimes/shared/remote/dio_helper.dart';
@@ -27,9 +28,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: ((context) => TechnologyCubit()..getScienceNews()),
         ),
+        BlocProvider(
+          create: ((context) => SearchCubit()),
+        ),
       ],
       child: MaterialApp(
-        title: 'EgyTimes',
+        title: 'Times',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,

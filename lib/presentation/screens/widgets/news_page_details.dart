@@ -1,11 +1,11 @@
 import 'package:egytimes/data/models/articlesModel.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetailsPage extends StatelessWidget {
-  const NewsDetailsPage({Key? key, required this.article}) : super(key: key);
+  const NewsDetailsPage({Key? key, required this.article, required this.context}) : super(key: key);
   final Articles article;
+  final BuildContext context;
   @override
   Widget build(BuildContext context) {
     return Hero(
@@ -40,7 +40,7 @@ class NewsDetailsPage extends StatelessWidget {
                         Text(
                           article.title!,
                           maxLines: 3,
-                          textAlign: TextAlign.right,
+                          textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.headline6,
                         ),
@@ -50,18 +50,18 @@ class NewsDetailsPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(
                       left: 8.0,
-                      right: 10.0,
+                      right: 13.0,
                       bottom: 15.0,
                       top: 8,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           DateFormat('dd MMMM yyyy').format(
                             DateTime.parse(article.publishedAt ?? '2020-01-01'),
                           ),
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ],
                     ),
@@ -86,12 +86,12 @@ class NewsDetailsPage extends StatelessWidget {
                     ),
                     child: SingleChildScrollView(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '${article.description ?? article.title!}. \n\n ${article.source?['name'] ?? 'NewsAPI'} : المصدر ',
+                            '${article.description ?? article.title!}. \n\nSource: ${article.source?['name'] ?? 'NewsAPI'} ',
                             style: Theme.of(context).textTheme.headline6,
-                            textAlign: TextAlign.right,
+                            textAlign: TextAlign.left,
                           ),
                         ],
                       ),

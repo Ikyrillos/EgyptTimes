@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 import '../../data/models/articlesModel.dart';
 import '../../data/models/postModel.dart';
 import '../../shared/remote/dio_helper.dart';
@@ -14,9 +13,9 @@ class SportCubit extends Cubit<SportsState> {
 
   var baseUrl = 'https://newsapi.org/v2/top-headlines';
   var apiKey = '14edd17012b34b9eaf5117eae583678d';
-  var country = 'eg';
+  var country = 'us';
   var category = 'sports';
-  var language = 'ar';
+  var language = 'en';
   List<Articles>? articles;
 
   void getSportsNews() {
