@@ -1,4 +1,4 @@
-# egytimes
+# Times
 
 A new Flutter project.
 
